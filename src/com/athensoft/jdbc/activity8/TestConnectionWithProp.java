@@ -20,7 +20,7 @@ public class TestConnectionWithProp {
 
         try {
             // load driver
-            Driver myDriver = new com.mysql.jdbc.Driver();
+            Driver myDriver = new com.mysql.cj.jdbc.Driver();
             DriverManager.registerDriver(myDriver);
 
             //create connection

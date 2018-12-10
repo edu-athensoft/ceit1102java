@@ -4,8 +4,8 @@ import java.sql.*;
 
 public class TestResultSet {
     // JDBC driver name and database URL
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/EMP";
+    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://localhost/ceit1102java";
 
     //  Database credentials
     static final String USER = "root";
@@ -16,20 +16,18 @@ public class TestResultSet {
         Statement stmt = null;
         try{
             //STEP 2: Register JDBC driver
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(JDBC_DRIVER);
 
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
-            //STEP 4: Execute a query to create statment with
-            // required arguments for RS example.
+            //STEP 4: Execute a query to create statement with required arguments for RS example.
             System.out.println("Creating statement...");
             stmt = conn.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
-            String sql;
-            sql = "SELECT id, first, last, age FROM Employees";
+            String sql = "SELECT id, first, last, age FROM Employees";
             ResultSet rs = stmt.executeQuery(sql);
 
             // Move cursor to the last row.
@@ -50,6 +48,9 @@ public class TestResultSet {
             System.out.print(", First: " + first);
             System.out.println(", Last: " + last);
 
+            //
+            System.out.println();
+
             // Move cursor to the first row.
             System.out.println("Moving cursor to the first row...");
             rs.first();
@@ -69,6 +70,8 @@ public class TestResultSet {
             System.out.println(", Last: " + last);
             // Move cursor to the first row.
 
+            //
+            System.out.println();
             System.out.println("Moving cursor to the next row...");
             rs.next();
 
