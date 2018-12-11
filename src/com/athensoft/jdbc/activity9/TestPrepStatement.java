@@ -32,7 +32,6 @@ public class TestPrepStatement {
             //Extract data from result set
             showResult(rs);
 
-
             /* Clean-up environment */
             rs.close();
             pstmt.close();

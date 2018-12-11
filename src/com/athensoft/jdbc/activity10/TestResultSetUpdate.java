@@ -1,43 +1,40 @@
 package com.athensoft.jdbc.activity10;
 
+import com.athensoft.jdbc.base.ConnectionUtil;
+
 import java.sql.*;
 
 public class TestResultSetUpdate {
-    // JDBC driver name and database URL
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/EMP";
 
-    //  Database credentials
-    static final String USER = "username";
-    static final String PASS = "password";
 
     public static void main(String[] args) {
         Connection conn = null;
+        Statement stmt = null;
+
         try{
-            //STEP 2: Register JDBC driver
-            Class.forName("com.mysql.jdbc.Driver");
-
-            //STEP 3: Open a connection
+            //Open a connection
             System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            conn = ConnectionUtil.getConnection();
 
-            //STEP 4: Execute a query to create statment with
+            //Execute a query to create statment with
             // required arguments for RS example.
             System.out.println("Creating statement...");
-            Statement stmt = conn.createStatement(
+            stmt = conn.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_UPDATABLE);
-            //STEP 5: Execute a query
+
+            //Execute a query
             String sql = "SELECT id, first, last, age FROM Employees";
             ResultSet rs = stmt.executeQuery(sql);
 
             System.out.println("List result set for reference....");
             printRs(rs);
 
-            //STEP 6: Loop through result set and add 5 in age
+            //Loop through result set and add 5 in age
             //Move to BFR postion so while-loop works properly
             rs.beforeFirst();
-            //STEP 7: Extract data from result set
+
+            //Extract data from result set
             while(rs.next()){
                 //Retrieve by column name
                 int newAge = rs.getInt("age") + 5;
@@ -46,6 +43,8 @@ public class TestResultSetUpdate {
             }
             System.out.println("List result set showing new ages...");
             printRs(rs);
+
+
             // Insert a record into the table.
             //Move to insert row and add column data with updateXXX()
             System.out.println("Inserting a new record...");

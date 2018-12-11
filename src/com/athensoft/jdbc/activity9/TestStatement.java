@@ -13,7 +13,8 @@ public class TestStatement {
         Connection conn = null;
         Statement stmt = null;
         try {
-            //Create a jdbc connection
+            //Open a connection
+            System.out.println("Connecting to database...");
             conn = ConnectionUtil.getConnection();
 
             //Execute a query
