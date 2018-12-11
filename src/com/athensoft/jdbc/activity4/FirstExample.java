@@ -1,4 +1,4 @@
-package com.athensoft.jdbc.activity6;
+package com.athensoft.jdbc.activity4;
 
 //STEP 1. Import required packages
 

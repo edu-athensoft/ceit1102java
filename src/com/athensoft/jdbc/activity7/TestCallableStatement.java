@@ -1,11 +1,11 @@
-package com.athensoft.jdbc.activity9;
+package com.athensoft.jdbc.activity7;
 
 import com.athensoft.jdbc.base.ConnectionUtil;
 
 import java.sql.*;
 
 /**
- * Activity 9-3. How to use CallableStatement
+ * Activity 7-3. How to use CallableStatement
  */
 public class TestCallableStatement {
 

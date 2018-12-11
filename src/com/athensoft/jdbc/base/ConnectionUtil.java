@@ -1,6 +1,6 @@
 package com.athensoft.jdbc.base;
 
-import com.athensoft.jdbc.activity8.TestConnectionWithPropDoc;
+import com.athensoft.jdbc.activity6.TestConnectionWithPropDoc;
 
 import java.io.IOException;
 import java.io.InputStream;

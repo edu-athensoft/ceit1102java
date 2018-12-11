@@ -1,59 +1,53 @@
-package com.athensoft.jdbc.activity9;
+package com.athensoft.jdbc.activity7;
 
 import com.athensoft.jdbc.base.ConnectionUtil;
 
 import java.sql.*;
 
 /**
- * Activity 9-2. How to use PreparedStatement
+ * Activity 7-1a. How to use Statement
  */
-public class TestPrepStatement {
+public class TestStatement {
 
     public static void main(String[] args) {
         Connection conn = null;
-        PreparedStatement pstmt = null;
-        try{
+        Statement stmt = null;
+        try {
             //Open a connection
             System.out.println("Connecting to database...");
             conn = ConnectionUtil.getConnection();
 
             //Execute a query
-            System.out.println("Creating prepared statement...");
-
-            String sql;
-            sql = "SELECT customer_id, store_id, first_name, last_name FROM customer WHERE customer_id=?";
-            pstmt = conn.prepareStatement(sql);
-            int index_1 = 1;
-            int value_1 = 1;
-            pstmt.setInt(index_1,value_1);
-
-            ResultSet rs = pstmt.executeQuery();
+            System.out.println("Creating statement...");
+            stmt = conn.createStatement();
+            String sql = "SELECT customer_id, store_id, first_name, last_name FROM customer LIMIT 5";
 
             //Extract data from result set
+            ResultSet rs = stmt.executeQuery(sql);
             showResult(rs);
 
-            /* Clean-up environment */
+            //Clean-up environment
             rs.close();
-            pstmt.close();
+            stmt.close();
             conn.close();
-        }catch(SQLException se){
+        } catch (SQLException se) {
             //Handle errors for JDBC
             se.printStackTrace();
-        }catch(Exception e){
+        } catch (Exception e) {
             //Handle errors for Class.forName
             e.printStackTrace();
-        }finally{
+        } finally {
             //finally block used to close resources
-            try{
-                if(pstmt!=null)
-                    pstmt.close();
-            }catch(SQLException se2){
+            try {
+                if (stmt != null)
+                    stmt.close();
+            } catch (SQLException se2) {
                 se2.printStackTrace();
             }// nothing we can do
-            try{
-                if(conn!=null)
+            try {
+                if (conn != null)
                     conn.close();
-            }catch(SQLException se){
+            } catch (SQLException se) {
                 se.printStackTrace();
             }//end finally try
         }//end try
@@ -76,4 +70,5 @@ public class TestPrepStatement {
             System.out.println(", last_name: " + last_name);
         }
     }
+
 }

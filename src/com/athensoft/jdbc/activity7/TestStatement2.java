@@ -1,11 +1,11 @@
-package com.athensoft.jdbc.activity9;
+package com.athensoft.jdbc.activity7;
 
 import com.athensoft.jdbc.base.ConnectionUtil;
 
 import java.sql.*;
 
 /**
- * Activity 9-1b. how to use PreparedStatement
+ * Activity 7-1b. how to use PreparedStatement
  */
 public class TestStatement2 {
 

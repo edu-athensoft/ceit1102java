@@ -1,15 +1,11 @@
-package com.athensoft.jdbc.activity8;
+package com.athensoft.jdbc.activity6;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
-
-import com.mysql.jdbc.Driver;
 
 public class TestConnectionWithPropDoc {
 

@@ -1,4 +1,4 @@
-package com.athensoft.jdbc.activity10;
+package com.athensoft.jdbc.activity8;
 
 import com.athensoft.jdbc.base.ConnectionUtil;
 
