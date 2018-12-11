@@ -1,29 +1,23 @@
 package com.athensoft.jdbc.activity9;
 
+import com.athensoft.jdbc.base.ConnectionUtil;
+
 import java.sql.*;
 
+/**
+ * Activity 9-2. How to use PreparedStatement
+ */
 public class TestPrepStatement {
-    // JDBC driver name and database URL
-    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-//    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/ceit1102java";
-
-    //  Database credentials
-    private static final String USER = "root";
-    private static final String PASS = "Timon@927";
 
     public static void main(String[] args) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         try{
-            //STEP 2: Register JDBC driver
-            Class.forName(JDBC_DRIVER);
-
-            //STEP 3: Open a connection
+            //Open a connection
             System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            conn = ConnectionUtil.getConnection();
 
-            //STEP 4: Execute a query
+            //Execute a query
             System.out.println("Creating prepared statement...");
 
             String sql;
@@ -35,21 +29,11 @@ public class TestPrepStatement {
 
             ResultSet rs = pstmt.executeQuery();
 
-            //STEP 5: Extract data from result set
-            while(rs.next()){
-                //Retrieve by column name
-                int customer_id  = rs.getInt("customer_id");
-                int store_id = rs.getInt("store_id");
-                String first_name = rs.getString("first_name");
-                String last_name = rs.getString("last_name");
+            //Extract data from result set
+            showResult(rs);
 
-                //Display values
-                System.out.print("customer_id: " + customer_id);
-                System.out.print(", store_id: " + store_id);
-                System.out.print(", first_name: " + first_name);
-                System.out.println(", last_name: " + last_name);
-            }
-            //STEP 6: Clean-up environment
+
+            /* Clean-up environment */
             rs.close();
             pstmt.close();
             conn.close();
@@ -76,4 +60,21 @@ public class TestPrepStatement {
         }//end try
         System.out.println("Goodbye!");
     }//end main
+
+
+    public static void showResult(ResultSet rs) throws SQLException {
+        while (rs.next()) {
+            //Retrieve by column name
+            int customer_id = rs.getInt("customer_id");
+            int store_id = rs.getInt("store_id");
+            String first_name = rs.getString("first_name");
+            String last_name = rs.getString("last_name");
+
+            //Display values
+            System.out.print("customer_id: " + customer_id);
+            System.out.print(", store_id: " + store_id);
+            System.out.print(", first_name: " + first_name);
+            System.out.println(", last_name: " + last_name);
+        }
+    }
 }

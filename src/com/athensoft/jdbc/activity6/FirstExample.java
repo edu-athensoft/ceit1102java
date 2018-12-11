@@ -1,6 +1,8 @@
 package com.athensoft.jdbc.activity6;
 
 //STEP 1. Import required packages
+
+
 import java.sql.*;
 
 public class FirstExample {
@@ -22,6 +24,8 @@ public class FirstExample {
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
+
+            //System.out.println(""+conn);
 
             //STEP 4: Execute a query
             System.out.println("Creating statement...");

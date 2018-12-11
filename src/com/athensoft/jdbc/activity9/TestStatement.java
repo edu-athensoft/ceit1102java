@@ -1,74 +1,73 @@
 package com.athensoft.jdbc.activity9;
 
+import com.athensoft.jdbc.base.ConnectionUtil;
+
 import java.sql.*;
 
+/**
+ * Activity 9-1a. How to use Statement
+ */
 public class TestStatement {
-    // JDBC driver name and database URL
-    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-//    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/ceit1102java";
-
-    //  Database credentials
-    private static final String USER = "root";
-    private static final String PASS = "Timon@927";
 
     public static void main(String[] args) {
         Connection conn = null;
         Statement stmt = null;
-        try{
-            //STEP 2: Register JDBC driver
-            Class.forName(JDBC_DRIVER);
+        try {
+            //Create a jdbc connection
+            conn = ConnectionUtil.getConnection();
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
-
-            //STEP 4: Execute a query
+            //Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
-            String sql;
-            sql = "SELECT customer_id, store_id, first_name, last_name FROM customer LIMIT 5";
+            String sql = "SELECT customer_id, store_id, first_name, last_name FROM customer LIMIT 5";
+
+            //Extract data from result set
             ResultSet rs = stmt.executeQuery(sql);
+            showResult(rs);
 
-            //STEP 5: Extract data from result set
-            while(rs.next()){
-                //Retrieve by column name
-                int customer_id  = rs.getInt("customer_id");
-                int store_id = rs.getInt("store_id");
-                String first_name = rs.getString("first_name");
-                String last_name = rs.getString("last_name");
-
-                //Display values
-                System.out.print("customer_id: " + customer_id);
-                System.out.print(", store_id: " + store_id);
-                System.out.print(", first_name: " + first_name);
-                System.out.println(", last_name: " + last_name);
-            }
-            //STEP 6: Clean-up environment
+            //Clean-up environment
             rs.close();
             stmt.close();
             conn.close();
-        }catch(SQLException se){
+        } catch (SQLException se) {
             //Handle errors for JDBC
             se.printStackTrace();
-        }catch(Exception e){
+        } catch (Exception e) {
             //Handle errors for Class.forName
             e.printStackTrace();
-        }finally{
+        } finally {
             //finally block used to close resources
-            try{
-                if(stmt!=null)
+            try {
+                if (stmt != null)
                     stmt.close();
-            }catch(SQLException se2){
+            } catch (SQLException se2) {
                 se2.printStackTrace();
             }// nothing we can do
-            try{
-                if(conn!=null)
+            try {
+                if (conn != null)
                     conn.close();
-            }catch(SQLException se){
+            } catch (SQLException se) {
                 se.printStackTrace();
             }//end finally try
         }//end try
         System.out.println("Goodbye!");
     }//end main
+
+
+    public static void showResult(ResultSet rs) throws SQLException {
+        while (rs.next()) {
+            //Retrieve by column name
+            int customer_id = rs.getInt("customer_id");
+            int store_id = rs.getInt("store_id");
+            String first_name = rs.getString("first_name");
+            String last_name = rs.getString("last_name");
+
+            //Display values
+            System.out.print("customer_id: " + customer_id);
+            System.out.print(", store_id: " + store_id);
+            System.out.print(", first_name: " + first_name);
+            System.out.println(", last_name: " + last_name);
+        }
+    }
+
 }

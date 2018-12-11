@@ -1,29 +1,23 @@
 package com.athensoft.jdbc.activity9;
 
+import com.athensoft.jdbc.base.ConnectionUtil;
+
 import java.sql.*;
 
+/**
+ * Activity 9-3. How to use CallableStatement
+ */
 public class TestCallableStatement {
-    // JDBC driver name and database URL
-    static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-//    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/ceit1102java";
-
-    //  Database credentials
-    private static final String USER = "root";
-    private static final String PASS = "Timon@927";
 
     public static void main(String[] args) {
         Connection conn = null;
         CallableStatement cstmt = null;
         try{
-            //STEP 2: Register JDBC driver
-            Class.forName(JDBC_DRIVER);
-
-            //STEP 3: Open a connection
+            //Open a connection
             System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            conn = ConnectionUtil.getConnection();
 
-            //STEP 4: Execute a query
+            //Execute a query
             System.out.println("Creating callable statement...");
 
             String sql;
@@ -35,7 +29,7 @@ public class TestCallableStatement {
 
             cstmt.execute();
 
-            //STEP 5: Extract data from result set
+            //Extract data from result set
             String fname = cstmt.getString(2);
             System.out.println(fname);
             cstmt.close();

@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class TestConnectionWithProp {
 
-    private static final String DB_URL = "jdbc:mysql://workstation:3306/ceit1102java";
+    private static final String DB_URL = "jdbc:mysql://workstation:3306/ceit1102java?useSSL=false";
 
     //  Database credentials
 //    private static final String USER = "root";
@@ -20,7 +20,7 @@ public class TestConnectionWithProp {
 
         try {
             // load driver
-            Driver myDriver = new com.mysql.cj.jdbc.Driver();
+            Driver myDriver = new com.mysql.jdbc.Driver();
             DriverManager.registerDriver(myDriver);
 
             //create connection

@@ -1,11 +1,15 @@
 package com.athensoft.jdbc.activity8;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+
+import com.mysql.jdbc.Driver;
 
 public class TestConnectionWithPropDoc {
 
@@ -16,28 +20,45 @@ public class TestConnectionWithPropDoc {
 
 
     public static void main(String[] args) {
-        InputStream inStream = TestConnectionWithPropDoc.class.getClassLoader().getResourceAsStream("jdbc-mysql.properties");
-
-        Properties prop = new Properties();
-
-        Connection conn = null;
         try {
-            prop.load(inStream);
 
-            driverName = prop.getProperty("driverName");
-            url = prop.getProperty("url");
-            user = prop.getProperty("user");
-            password = prop.getProperty("password");
+            InputStream inStream = TestConnectionWithPropDoc.class.getResourceAsStream("../config/jdbc-mysql.properties");
 
-            Class.forName(driverName);
-            conn = DriverManager.getConnection(url, user, password);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+//            File file = new File("D:\\java\\workspace\\ideaws\\ceit1102java\\src\\com\\athensoft\\jdbc\\activity8\\jdbc-mysql.properties");
+//            InputStream inStream = new FileInputStream(file);
+            Properties prop = new Properties();
+
+            Connection conn = null;
+
+                if (inStream == null) {
+                    System.out.println("instream is null");
+                } else {
+                    System.out.println(inStream);
+                    prop.load(inStream);
+                }
+
+
+                driverName = prop.getProperty("driverName");
+                url = prop.getProperty("url");
+                user = prop.getProperty("user");
+                password = prop.getProperty("password");
+
+                System.out.println(driverName);
+                System.out.println(url);
+                System.out.println(user);
+                System.out.println(password);
+
+                Class.forName(driverName);
+                conn = DriverManager.getConnection(url, user, password);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
-}
+
