@@ -18,7 +18,7 @@ public class ConnectionUtil {
 
         Connection conn = null;
         try {
-            InputStream inStream = TestConnectionWithPropDoc.class.getResourceAsStream("../config/jdbc-mysql.properties");
+            InputStream inStream = ConnectionUtil.class.getResourceAsStream("../config/jdbc-mysql.properties");
             Properties prop = new Properties();
             if (inStream == null) {
                 System.out.println("instream is null");

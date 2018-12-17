@@ -21,11 +21,15 @@ public class TestPrepStatement {
             System.out.println("Creating prepared statement...");
 
             String sql;
-            sql = "SELECT customer_id, store_id, first_name, last_name FROM customer WHERE customer_id=?";
+            sql = "SELECT customer_id, store_id, first_name, last_name FROM customer WHERE customer_id in (?,?)";
             pstmt = conn.prepareStatement(sql);
             int index_1 = 1;
             int value_1 = 1;
             pstmt.setInt(index_1,value_1);
+
+            int index_2 = 2;
+            int value_2 = 2;
+            pstmt.setInt(index_2,value_2);
 
             ResultSet rs = pstmt.executeQuery();
 

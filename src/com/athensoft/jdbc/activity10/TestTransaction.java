@@ -21,8 +21,8 @@ public class TestTransaction {
             stmt.executeUpdate(sql);
 
             //Submit a malformed SQL statement that breaks
-            String sql2 = "INSERTED IN Employees VALUES (107, 22, 'Sita', 'Singh')";  //try it first
-//            String sql2 = "INSERT INTO Employees VALUES (107, 22, 'Sita', 'Singh')";    //try it after
+//            String sql2 = "INSERTED IN Employees VALUES (107, 22, 'Sita', 'Singh')";  //try it first
+            String sql2 = "INSERT INTO Employees VALUES (107, 22, 'Sita', 'Singh')";    //try it after
             stmt.executeUpdate(sql2);
             // If there is no error.
             conn.commit();

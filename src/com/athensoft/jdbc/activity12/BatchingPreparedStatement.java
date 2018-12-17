@@ -30,7 +30,7 @@ public class BatchingPreparedStatement {
         printRows( stmt );
 
         // Set the variables
-        stmt.setInt( 1, 400 );
+        stmt.setInt( 1, 500 );
         stmt.setString( 2, "Pappu" );
         stmt.setString( 3, "Singh" );
         stmt.setInt( 4, 33 );
@@ -38,7 +38,7 @@ public class BatchingPreparedStatement {
         stmt.addBatch();
 
         // Set the variables
-        stmt.setInt( 1, 401 );
+        stmt.setInt( 1, 501 );
         stmt.setString( 2, "Pawan" );
         stmt.setString( 3, "Singh" );
         stmt.setInt( 4, 31 );

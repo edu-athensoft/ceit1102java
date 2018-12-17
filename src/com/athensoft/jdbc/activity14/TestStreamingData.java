@@ -92,7 +92,7 @@ public class TestStreamingData {
             throws SQLException{
         System.out.println("Creating XML_Data table..." );
         //Create SQL Statement
-        String streamingDataSql = "CREATE TABLE XML_Data " +
+        String streamingDataSql = "CREATE TABLE xml_data " +
                 "(uid INTEGER NOT NULL AUTO_INCREMENT, id INTEGER, Data mediumtext, PRIMARY KEY (uid))";
         //Drop table first if it exists.
         try{

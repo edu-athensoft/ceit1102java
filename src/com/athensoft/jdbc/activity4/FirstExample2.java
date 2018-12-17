@@ -1,32 +1,49 @@
-package com.athensoft.jdbc.activity7;
+package com.athensoft.jdbc.activity4;
+
+//STEP 1. Import required packages
+
 
 import com.athensoft.jdbc.base.ConnectionUtil;
 
 import java.sql.*;
 
-/**
- * Activity 7-1b. how to use PreparedStatement
- */
-public class TestStatement2 {
+public class FirstExample2 {
 
     public static void main(String[] args) {
         Connection conn = null;
         Statement stmt = null;
         try{
-            //Open a connection
+
+
+            //STEP 3: Open a connection
+            System.out.println("Connecting to database...");
             conn = ConnectionUtil.getConnection();
 
-            //Execute a query
+            //System.out.println(""+conn);
+
+            //STEP 4: Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql;
-            sql = "UPDATE customer SET first_name = 'MARY_new', last_name= 'SMITH_new' WHERE customer_id=1";
+            sql = "SELECT id, first, last, age FROM Employees";
+            ResultSet rs = stmt.executeQuery(sql);
 
-            System.out.println("Executing statement...");
-            stmt.executeUpdate(sql);
-            System.out.println("Done.");
+            //STEP 5: Extract data from result set
+            while(rs.next()){
+                //Retrieve by column name
+                int id  = rs.getInt("id");
+                int age = rs.getInt("age");
+                String first = rs.getString("first");
+                String last = rs.getString("last");
 
+                //Display values
+                System.out.print("ID: " + id);
+                System.out.print(", Age: " + age);
+                System.out.print(", First: " + first);
+                System.out.println(", Last: " + last);
+            }
             //STEP 6: Clean-up environment
+            rs.close();
             stmt.close();
             conn.close();
         }catch(SQLException se){
@@ -52,4 +69,4 @@ public class TestStatement2 {
         }//end try
         System.out.println("Goodbye!");
     }//end main
-}
+}//end FirstExample
