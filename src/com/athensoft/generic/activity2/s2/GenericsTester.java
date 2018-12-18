@@ -22,7 +22,9 @@ public class GenericsTester {
 
         CustomList<Box> list = new CustomList<Box>();
         list.addItem(box);
+        list.addItem(box);
         System.out.printf("(CustomList)Integer Value :%d\n", list.getItem(0).getFirst());
+        System.out.printf("(CustomList)Integer Value :%s\n", list.getItem(1).getSecond());
     }
 }
 

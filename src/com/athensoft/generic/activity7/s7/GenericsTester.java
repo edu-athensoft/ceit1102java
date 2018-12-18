@@ -13,17 +13,18 @@ public class GenericsTester {
     }
 
 
-    public static <T extends Exception, J>
-    void execute(List<J> jobs) {
+    public static <T extends Exception, J> void execute(List<J> jobs) {
         try {
-            for (J job : jobs) {}
+            for (J job : jobs) {
+
+            }
 
             // compile-time error
             //Cannot use the type parameter T in a catch block
         }
-        //catch (T e) {   //error
-            // ...
-       // }
+//        catch (T e) {   //error
+//             ...
+//        }
         finally{
 
         }

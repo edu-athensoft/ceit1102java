@@ -15,8 +15,8 @@ public class GenericsTester {
 	public static <T> void add(Box<T> box) {
 		// compiler error
 		// Cannot instantiate the type T
-		// T item = new T();
-		// box.add(item);
+//		 T item = new T();
+//		 box.add(item);
 	}
 
 	public static <T> void add(Box<T> box, Class<T> clazz) throws InstantiationException, IllegalAccessException {

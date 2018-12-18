@@ -10,7 +10,7 @@ public class GenericsTester {
     //Use the form Box<?> instead since further
     //generic type information will be erased at runtime
 
-        //if(integerBox instanceof Box<Integer>) { }
+//        if(integerBox instanceof Box<Integer>) { }
     }
 }
 

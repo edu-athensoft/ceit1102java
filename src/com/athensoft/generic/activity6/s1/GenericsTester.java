@@ -18,6 +18,7 @@ public class GenericsTester {
 	}
 }
 
+
 class Box<T extends Number> {
 	private T t;
 
@@ -30,8 +31,8 @@ class Box<T extends Number> {
 	}
 }
 
-/*
 
+/*
 class Box {
    private Number t;
 
@@ -43,8 +44,8 @@ class Box {
       return t;
    }
 }
+*/
 
 
 
 
- */

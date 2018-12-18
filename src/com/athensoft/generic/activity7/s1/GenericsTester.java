@@ -12,7 +12,7 @@ public class GenericsTester {
 	      //compiler errror
 	      //ReferenceType
 	      //- Syntax error, insert "Dimensions" to complete ReferenceType
-	      //Box<int> stringBox = new Box<int>();
+//	      Box<int> stringBox = new Box<int>();
 
 	      integerBox.add(new Integer(10));
 	      printBox(integerBox);

@@ -16,4 +16,12 @@ public class GenericsTester {
 
 //    public void print(List<String> stringList) { }
 //    public void print(List<Integer> integerList) { }
+
+    public <T extends String,Number> void print(List<T> myList) {
+        for(T em: myList){
+            System.out.println(em);
+        }
+
+    }
+
 }

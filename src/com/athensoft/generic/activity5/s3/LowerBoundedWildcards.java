@@ -37,6 +37,7 @@ public class LowerBoundedWildcards {
 	      //addCat.addMethod(dogList); 
 	   }
 	}
+
 	class Animal {}
 
 	class Cat extends Animal {}

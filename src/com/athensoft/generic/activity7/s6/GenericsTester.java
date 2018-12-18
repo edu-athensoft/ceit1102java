@@ -1,9 +1,12 @@
 package com.athensoft.generic.activity7.s6;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GenericsTester {
     public static void main(String[] args) {
         //Cannot create a generic array of Box<Integer>
-        //Box<Integer>[] arrayOfLists = new Box<Integer>[2];
+//        Box<Integer>[] arrayOfLists = new Box<Integer>[2];
     }
 }
 

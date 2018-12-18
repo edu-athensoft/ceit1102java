@@ -7,17 +7,19 @@ package com.athensoft.generic.activity2.s4;
  */
 public class GenericMethodDemo {
 	// generic method printArray
-	   public static < E > void printArray( E[] inputArray ) {
-	      // Display array elements
-	      for(E element : inputArray) {
-	         System.out.printf("%s ", element);
-	      }
-	      System.out.println();
-	   }
+       public static < E > void printArray( E[] inputArray ) {
+        // Display array elements
+        for(E element : inputArray) {
+            System.out.printf("%s ", element);
+        }
+        System.out.println();
+    }
 
 	   public static void main(String args[]) {
 	      // Create arrays of Integer, Double and Character, not primitive type
 	      Integer[] intArray = { 1, 2, 3, 4, 5 };
+          // int 1 -> Integer(1) ;  int a = Integer.valueOf(1);
+
 	      Double[] doubleArray = { 1.1, 2.2, 3.3, 4.4 };
 	      Character[] charArray = { 'H', 'E', 'L', 'L', 'O' };
 

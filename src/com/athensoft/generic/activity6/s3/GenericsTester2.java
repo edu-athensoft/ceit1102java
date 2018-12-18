@@ -16,17 +16,27 @@ public class GenericsTester2 {
 
 		System.out.printf("Integer Value :%d\n", integerBox.get());
 		System.out.printf("String Value :%s\n", stringBox.get());
+
+		Integer[] intArray = { 1, 2, 3, 4, 5 };
+		printArray(intArray);
 	}
+
+	public static <E extends Number> void printArray(E[] inputArray){
+        for(E element : inputArray) {
+            System.out.printf("%s ", element);
+        }
+
+    }
+
+	/*
+	public static  void printArray(Number[] inputArray){
+		for(Number element : inputArray) {
+			System.out.printf("%s ", element);
+		}
+
+	}*/
+
+
 }
 
-//class Box<T> {
-//	private T t;
-//
-//	public void add(T t) {
-//		this.t = t;
-//	}
-//
-//	public T get() {
-//		return t;
-//	}
-//}
+
