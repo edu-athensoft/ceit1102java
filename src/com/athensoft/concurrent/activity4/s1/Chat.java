@@ -12,7 +12,7 @@ public class Chat {
                 e.printStackTrace();
             }
         }
-        System.out.println(msg);
+        System.out.println(Thread.currentThread().getName()+" : \t"+msg);
         flag = true;
         notify();
     }
@@ -27,7 +27,7 @@ public class Chat {
                 e.printStackTrace();
             }
         }
-        System.out.println(msg);
+        System.out.println(Thread.currentThread().getName()+" : \t"+msg);
         flag = false;
         notify();
     }

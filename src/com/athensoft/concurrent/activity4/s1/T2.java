@@ -1,5 +1,8 @@
 package com.athensoft.concurrent.activity4.s1;
 
+/**
+ * Answer thread
+ */
 class T2 implements Runnable {
     Chat m;
     String[] s2 = { "Hi", "I am good, what about you?", "Great!" };
