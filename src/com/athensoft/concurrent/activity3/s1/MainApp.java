@@ -1,6 +1,14 @@
 package com.athensoft.concurrent.activity3.s1;
 
-public class TestThread {
+/**
+ * Activity 3-1. Major concurrency operation
+ *
+ * suspend -> wait() with a signal
+ * resume -> notify() with a signal
+ * join()
+ * Thread.sleep()
+ */
+public class MainApp {
 
     public static void main(String args[]) {
         RunnableDemo R1 = new RunnableDemo("Thread-1");
