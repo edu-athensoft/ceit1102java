@@ -1,13 +1,15 @@
 package com.athensoft.concurrent.demo.s5;
 
 /**
- * yield works
+ * yield does not work due to synchronized
  */
-public class Work implements Runnable{
+public class WorkSync implements Runnable{
 
     @Override
     public void run() {
         for(int i=10; i>0; i--){
+
+            synchronized (this) {
                 String msg = Thread.currentThread().getName() + " : " + i;
                 System.out.println(msg);
 
@@ -15,7 +17,7 @@ public class Work implements Runnable{
                     System.out.println(Thread.currentThread().getName() + " yield");
                     Thread.yield();
                 }
-
+            }
 
         }
     }
