@@ -1,4 +1,4 @@
-package com.athensoft.concurrent.demo.s1;
+package com.athensoft.concurrent.demo.s4;
 
 /**
  * PrimeCalculator -- calculate as many primes as it can in ten seconds
