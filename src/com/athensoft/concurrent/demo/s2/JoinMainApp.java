@@ -1,5 +1,10 @@
 package com.athensoft.concurrent.demo.s2;
 
+/**
+ * Demo : join
+ *
+ * the current thread comes to block and wait for the threads (t.join()) to finish their work
+ */
 public class JoinMainApp {
     public static void main(String[] args) {
         Thread t1 = new Thread(new JoinWork(),"Thread-1");

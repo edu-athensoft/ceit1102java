@@ -1,14 +1,14 @@
 package com.athensoft.concurrent.demo.s5;
 
 /**
- * Demo : yield
+ * Demo : yield with synchronized block
  *
  * The specified thread yields its CPU time for a period of time determined by OS
  */
-public class YieldMainApp {
+public class YieldSyncMainApp {
     public static void main(String[] args) {
-        Thread t1 = new Thread(new Work(), "T1");
-        Thread t2 = new Thread(new Work(), "T2");
+        Thread t1 = new Thread(new WorkSync(), "T1");
+        Thread t2 = new Thread(new WorkSync(), "T2");
         //Thread t3 = new Thread(new Work(), "T3");
 
         t1.setPriority(Thread.MAX_PRIORITY);
