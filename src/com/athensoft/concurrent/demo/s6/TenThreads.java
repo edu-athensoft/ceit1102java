@@ -30,6 +30,8 @@ public class TenThreads {
         int[][] bigMatrix = MatrixGenerator.getMatrix();
         int max = Integer.MIN_VALUE;
 
+
+        long starttime = System.currentTimeMillis();
         // Give each thread a slice of the matrix to work with
         for (int i=0; i < 10; i++) {
             threads[i] = new WorkerThread(bigMatrix[i]);
@@ -46,8 +48,10 @@ public class TenThreads {
         catch (InterruptedException e) {
             // fall through
         }
+        long endtime = System.currentTimeMillis();
 
         System.out.println("Maximum value was " + max);
+        System.out.println(endtime-starttime);
 
         MatrixGenerator.printMatrix(bigMatrix);
     }

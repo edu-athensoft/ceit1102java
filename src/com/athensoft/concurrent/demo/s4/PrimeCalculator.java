@@ -10,7 +10,7 @@ package com.athensoft.concurrent.demo.s4;
 public class PrimeCalculator extends Thread{
 
     public static final int MAX_PRIMES = 50000;
-    public static final int TEN_SECONDS = 200;
+    public static final int TEN_SECONDS = 3000;
 
     public volatile boolean finished = false;   //explain volatile keyword
 
@@ -40,6 +40,11 @@ public class PrimeCalculator extends Thread{
                 System.out.println("count="+count);
                 break;
             }
+
+//            while(finished){
+//                System.out.println("count="+count);
+//                break;
+//            }
 
             boolean isPrime = true;
             for(int j=0; j<count; j++){

@@ -9,6 +9,13 @@ public class JoinWork implements Runnable{
 
     @Override
     public void run() {
+
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         for(int i=20; i>0; i--){
             String msg = Thread.currentThread().getName()+" : "+i;
             System.out.println(msg);
