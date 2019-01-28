@@ -9,11 +9,12 @@ public class ZonedDateTimeDemo {
         ZoneId zoneId = ZoneId.of("Europe/Paris");
         System.out.println(zoneId);
         System.out.println(zoneId.getId());
+        System.out.println(ZoneId.systemDefault());
 
         Set<String> allZoneIds = ZoneId.getAvailableZoneIds();
-        allZoneIds.stream().forEach(System.out::println);
+//        allZoneIds.stream().forEach(System.out::println);
         allZoneIds.stream().filter(x->x.contains("Canada")).forEach(System.out::println);
-        allZoneIds.stream().filter(x->x.contains("Asia")).forEach(System.out::println);
+//        allZoneIds.stream().filter(x->x.contains("Asia")).forEach(System.out::println);
 
         //The LocalDateTime can be converted to a specific zone
         LocalDateTime localDateTime = LocalDateTime.now();
@@ -27,5 +28,6 @@ public class ZonedDateTimeDemo {
         ZoneOffset offset = ZoneOffset.of("+02:00");
         OffsetDateTime offSetByTwo = OffsetDateTime.of(localDateTime, offset);
 
+        LocalDateTime.ofEpochSecond(1465817690, 0, ZoneOffset.UTC);
     }
 }
