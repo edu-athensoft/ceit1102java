@@ -33,3 +33,9 @@ public class GenericMethodDemo {
 	      printArray(charArray);   // pass a Character array
 	   }
 }
+
+
+
+
+
+
