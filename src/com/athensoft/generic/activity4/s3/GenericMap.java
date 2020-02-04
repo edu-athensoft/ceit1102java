@@ -39,5 +39,16 @@ public class GenericMap {
 		while (stringIterator.hasNext()) {
 			System.out.printf("String Value :%s\n", stringIterator.next());
 		}
+		
+		
+		// traverse map
+//		Map<String, String> stringMap = new HashMap<String, String>();
+		 
+		for (Map.Entry<String, String> entry : stringMap.entrySet()) {
+		 
+		    System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+		 
+		}
+
 	}
 }
