@@ -47,6 +47,9 @@ public class TestConnectionWithPropDoc {
 
                 Class.forName(driverName);
                 conn = DriverManager.getConnection(url, user, password);
+                
+                System.out.println("The connection is:"+conn);
+                
 
             } catch (IOException e) {
                 e.printStackTrace();

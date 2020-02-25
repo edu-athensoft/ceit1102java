@@ -1,6 +1,5 @@
 package com.athensoft.jdbc.base;
 
-import com.athensoft.jdbc.activity6.TestConnectionWithPropDoc;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,6 +39,8 @@ public class ConnectionUtil {
 
             Class.forName(driverName);
             conn = DriverManager.getConnection(url, user, password);
+            
+            System.out.println("The connection is :"+conn);
 
 
         } catch (IOException e) {
