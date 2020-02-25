@@ -14,6 +14,12 @@ public class UpperBoundedWildcards {
 		for (Number n : numberlist) sum += n.doubleValue();
 		return sum;
 	}
+	
+//	public static double sum2(List<? extends Number> numberlist) {
+//		double sum = 0.0;
+//		for (Number n : numberlist) sum += n.doubleValue();
+//		return sum;
+//	}
 
 	public static void main(String args[]) {
 		List<Integer> integerList = Arrays.asList(1, 2, 3);

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Activity 6. Parameterized Type
+ * Activity 2-6. Parameterized Type
  * @author Athens
  *
  */
