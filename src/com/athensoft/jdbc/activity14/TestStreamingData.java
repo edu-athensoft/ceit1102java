@@ -27,7 +27,9 @@ public class TestStreamingData {
             createXMLTable(stmt);
 
             //Open a FileInputStream
-            File f = new File("D:\\java\\workspace\\ideaws\\ceit1102java\\src\\com\\athensoft\\jdbc\\activity14\\XML_Data");
+//            File f = new File("D:\\java\\workspace\\ideaws\\ceit1102java\\src\\com\\athensoft\\jdbc\\activity14\\XML_Data");
+            File f = new File("D:\\workspace\\eclipse201812\\ws_learning\\ceit1102java\\src\\com\\athensoft\\jdbc\\activity14\\XML_Data");
+            
             long fileLength = f.length();
             FileInputStream fis = new FileInputStream(f);
 
