@@ -38,6 +38,8 @@ public class FileInputStreamReadTester {
 			int i = input.read();
 
 			while (i != -1) {
+//			int a;
+//			while ((a =input.read()) != -1) {
 				System.out.print((char) i);
 //				System.out.println("\t"+i);	
 
