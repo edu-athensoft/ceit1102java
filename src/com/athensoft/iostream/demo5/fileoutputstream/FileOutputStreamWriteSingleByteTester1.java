@@ -27,7 +27,7 @@ public class FileOutputStreamWriteSingleByteTester1 {
 		FileOutputStream output = null;
 
 		try {
-			// Creates an InputStream
+			// Creates an OutputStream
 			final String OUTPUT_FILE = ".\\src\\com\\athensoft\\iostream\\demo5\\fileoutputstream\\output.txt";
 			output = new FileOutputStream(OUTPUT_FILE);
 
