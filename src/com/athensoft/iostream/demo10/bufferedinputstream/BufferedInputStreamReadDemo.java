@@ -5,34 +5,34 @@ import java.io.FileInputStream;
 
 public class BufferedInputStreamReadDemo {
 	public static void main(String[] args) {
-		
+
 		final String FILE_NAME = ".\\src\\com\\athensoft\\iostream\\demo10\\bufferedinputstream\\file-objects.txt";
-		
-        try {
-        	
-            // Creates a FileInputStream
-            FileInputStream file = new FileInputStream(FILE_NAME);
 
-            // Creates a BufferedInputStream
-            BufferedInputStream input = new BufferedInputStream(file);
+		try {
 
-            // Reads first byte from file
-            int i = input .read();
+			// Creates a FileInputStream
+			FileInputStream file = new FileInputStream(FILE_NAME);
 
-            while (i != -1) {
-                System.out.print((char) i);
+			// Creates a BufferedInputStream
+			BufferedInputStream input = new BufferedInputStream(file);
 
-                // Reads next byte from the file
-                System.out.println(i);
-                i = input.read();
-               
-            }
-            input.close();
-        }
+			// Reads first byte from file
+			int i = input.read();
 
-        catch (Exception e) {
-            e.getStackTrace();
-        }
-    }
+			while (i != -1) {
+				System.out.print((char) i + ": ");
+
+				// Reads next byte from the file
+				System.out.println(i);
+				i = input.read();
+
+			}
+			input.close();
+		}
+
+		catch (Exception e) {
+			e.getStackTrace();
+		}
+	}
 
 }
