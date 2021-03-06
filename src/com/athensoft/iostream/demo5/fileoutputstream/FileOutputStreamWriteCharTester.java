@@ -33,7 +33,7 @@ public class FileOutputStreamWriteCharTester {
 
 		
 			//data
-			char[] b = {'жа'};
+			char[] b = {'a'};
 			String s = new String(b);
 
             // Writes byte to the file
